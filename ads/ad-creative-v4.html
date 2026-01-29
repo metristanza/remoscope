@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remoscope Ad Creative V4 - Bold Minimal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .ad-container {
+      width: 1080px;
+      height: 1080px;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Gradient orb in background */
+    .orb {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+    
+    .orb.orb1 { top: -200px; right: -200px; }
+    .orb.orb2 { bottom: -200px; left: -200px; background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%); }
+    
+    .content {
+      z-index: 1;
+      text-align: center;
+    }
+    
+    .eyeball {
+      font-size: 120px;
+      margin-bottom: 40px;
+      filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.5));
+    }
+    
+    .headline {
+      color: #fff;
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      letter-spacing: -2px;
+    }
+    
+    .headline .highlight {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subheadline {
+      color: #64748b;
+      font-size: 28px;
+      margin-bottom: 60px;
+      font-weight: 500;
+    }
+    
+    .features {
+      display: flex;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+    
+    .feature {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .feature .dot {
+      width: 10px;
+      height: 10px;
+      background: #3b82f6;
+      border-radius: 50%;
+    }
+    
+    .cta {
+      background: #fff;
+      color: #000;
+      padding: 28px 70px;
+      border-radius: 100px;
+      font-size: 24px;
+      font-weight: 700;
+      display: inline-block;
+    }
+    
+    .logo {
+      position: absolute;
+      bottom: 50px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="ad-container">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    
+    <div class="content">
+      <div class="eyeball">👁️</div>
+      <div class="headline">Eyes <span class="highlight">Anywhere</span><br>On Demand</div>
+      <div class="subheadline">Live video verification. Any location.</div>
+      
+      <div class="features">
+        <div class="feature"><span class="dot"></span> Same Day</div>
+        <div class="feature"><span class="dot"></span> Verified Agents</div>
+        <div class="feature"><span class="dot"></span> Live Stream</div>
+      </div>
+      
+      <div class="cta">Get Early Access</div>
+    </div>
+    
+    <div class="logo">REMOSCOPE</div>
+  </div>
+</body>
+</html>

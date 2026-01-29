@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remoscope Ad Creative V2 - Cost Angle</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .ad-container {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(160deg, #0c1220 0%, #1a2744 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Comparison layout */
+    .comparison {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    
+    .option {
+      text-align: center;
+      padding: 50px;
+      border-radius: 24px;
+      width: 380px;
+    }
+    
+    .option.old {
+      background: rgba(239, 68, 68, 0.1);
+      border: 2px solid rgba(239, 68, 68, 0.3);
+    }
+    
+    .option.new {
+      background: rgba(34, 197, 94, 0.1);
+      border: 2px solid rgba(34, 197, 94, 0.5);
+      transform: scale(1.05);
+    }
+    
+    .option-label {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+    
+    .option.old .option-label { color: #ef4444; }
+    .option.new .option-label { color: #22c55e; }
+    
+    .option-icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+    }
+    
+    .option-title {
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    
+    .option-price {
+      font-size: 56px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    
+    .option.old .option-price { color: #ef4444; text-decoration: line-through; opacity: 0.7; }
+    .option.new .option-price { color: #22c55e; }
+    
+    .option-details {
+      color: #94a3b8;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    
+    .vs {
+      color: #64748b;
+      font-size: 32px;
+      font-weight: 800;
+    }
+    
+    .headline {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .subheadline {
+      color: #94a3b8;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .cta {
+      background: #3b82f6;
+      color: #fff;
+      padding: 24px 60px;
+      border-radius: 16px;
+      font-size: 26px;
+      font-weight: 700;
+      box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+    }
+    
+    .logo {
+      position: absolute;
+      bottom: 40px;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .logo span { color: #3b82f6; }
+    
+    .savings-badge {
+      position: absolute;
+      top: 40px;
+      right: 40px;
+      background: #22c55e;
+      color: #fff;
+      padding: 16px 28px;
+      border-radius: 50px;
+      font-size: 22px;
+      font-weight: 800;
+      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="ad-container">
+    <div class="savings-badge">Save 70%</div>
+    
+    <div class="comparison">
+      <div class="option old">
+        <div class="option-label">The Old Way</div>
+        <div class="option-icon">✈️</div>
+        <div class="option-title">Fly Out Yourself</div>
+        <div class="option-price">$400+</div>
+        <div class="option-details">Flight + hotel + full day<br>of travel each way</div>
+      </div>
+      
+      <div class="vs">vs</div>
+      
+      <div class="option new">
+        <div class="option-label">With Remoscope</div>
+        <div class="option-icon">📱</div>
+        <div class="option-title">Live Video</div>
+        <div class="option-price">$50</div>
+        <div class="option-details">Same-day verification<br>from your desk</div>
+      </div>
+    </div>
+    
+    <div class="headline">Skip the Flight. Get Live Video.</div>
+    <div class="cta">See How It Works →</div>
+    
+    <div class="logo">Remo<span>scope</span></div>
+  </div>
+</body>
+</html>
