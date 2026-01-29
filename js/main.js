@@ -26,6 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(script);
 
         if (data.result === 'success') {
+          // Track Lead event for Meta Pixel
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', { content_name: source });
+          }
+          
           const success = form.nextElementSibling;
           if (success && success.classList.contains('form-success')) {
             form.style.display = 'none';
