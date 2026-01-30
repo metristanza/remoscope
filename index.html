@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Remoscope — Eyes Anywhere, On Demand</title>
+  <title>Remoscope — Live Video Verification, Not Just Photos</title>
   
   <!-- Meta Pixel Code -->
   <script>
@@ -21,9 +21,9 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=839018642430613&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
-  <meta name="description" content="Live video verification from any location. Verified local agents stream directly to you in real time. Insurance, real estate, events, and remote work verification.">
-  <meta property="og:title" content="Remoscope — Eyes Anywhere, On Demand">
-  <meta property="og:description" content="Live video verification from any location. Verified local agents on the ground, streaming directly to your desk.">
+  <meta name="description" content="Stop waiting for photos. Watch LIVE as our agents verify locations in real-time. Direct the camera. Ask questions. Decide now — not tomorrow.">
+  <meta property="og:title" content="Remoscope — Live Video Verification, Not Just Photos">
+  <meta property="og:description" content="Other services send photos hours later. Remoscope streams LIVE video you can direct in real-time. See it now. Decide now.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remoscope.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,13 +31,52 @@
   <link rel="stylesheet" href="/css/style.css">
   <style>
     .hero-home { padding: 9rem 0 6rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%); color: #fff; }
-    .hero-home .badge { background: rgba(59,130,246,0.2); color: #60a5fa; }
+    .hero-home .badge { background: rgba(239,68,68,0.2); color: #f87171; font-weight: 600; }
     .hero-home h1 { color: #fff; }
+    .hero-home .highlight { color: #f87171; }
     .hero-home p { color: #94a3b8; }
     .stats { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; }
     .stat { text-align: center; }
     .stat-number { font-size: 2rem; font-weight: 800; color: #3b82f6; }
     .stat-label { font-size: 0.875rem; color: #64748b; margin-top: 0.25rem; }
+    
+    /* NEW: Comparison Section */
+    .comparison { background: #fff; padding: 5rem 0; }
+    .comparison h2 { text-align: center; margin-bottom: 0.5rem; }
+    .comparison .subtitle { text-align: center; color: #64748b; max-width: 600px; margin: 0 auto 3rem; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 2rem; max-width: 900px; margin: 0 auto; align-items: start; }
+    .comparison-box { padding: 2rem; border-radius: 16px; }
+    .comparison-old { background: #fef2f2; border: 2px solid #fecaca; }
+    .comparison-new { background: #ecfdf5; border: 2px solid #a7f3d0; }
+    .comparison-box h3 { margin-bottom: 1rem; font-size: 1.25rem; }
+    .comparison-old h3 { color: #dc2626; }
+    .comparison-new h3 { color: #16a34a; }
+    .comparison-box ul { list-style: none; padding: 0; margin: 0; }
+    .comparison-box li { padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
+    .comparison-old li::before { content: "✗"; color: #dc2626; font-weight: bold; }
+    .comparison-new li::before { content: "✓"; color: #16a34a; font-weight: bold; }
+    .comparison-vs { display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 800; color: #94a3b8; }
+    
+    /* NEW: Live Demo Section */
+    .live-demo { background: #0f172a; color: #fff; padding: 5rem 0; }
+    .live-demo h2 { text-align: center; color: #fff; margin-bottom: 0.5rem; }
+    .live-demo .subtitle { text-align: center; color: #94a3b8; max-width: 600px; margin: 0 auto 3rem; }
+    .demo-container { max-width: 800px; margin: 0 auto; background: #1e293b; border-radius: 16px; overflow: hidden; }
+    .demo-header { background: #dc2626; padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .demo-live { background: #fff; color: #dc2626; padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 700; font-size: 0.875rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+    .demo-body { padding: 2rem; }
+    .demo-video { background: #0f172a; border-radius: 8px; height: 300px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; position: relative; }
+    .demo-video-icon { font-size: 4rem; margin-bottom: 0.5rem; }
+    .demo-video-text { color: #94a3b8; }
+    .demo-commands { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+    .demo-cmd { background: #334155; color: #fff; padding: 0.75rem 1.25rem; border-radius: 8px; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; }
+    .demo-cmd:hover { background: #3b82f6; }
+    .demo-chat { margin-top: 1.5rem; background: #0f172a; border-radius: 8px; padding: 1rem; }
+    .demo-chat-msg { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; font-size: 0.9rem; }
+    .demo-chat-you { color: #60a5fa; font-weight: 600; }
+    .demo-chat-agent { color: #34d399; font-weight: 600; }
+    
     .industries { background: #f8fafc; }
     .industries h2 { text-align: center; margin-bottom: 1rem; }
     .industries .subtitle { text-align: center; color: #64748b; max-width: 600px; margin: 0 auto 3rem; }
@@ -67,6 +106,8 @@
     .footer-links a { color: #64748b; font-size: 0.875rem; }
     .footer-links a:hover { color: #fff; }
     @media (max-width: 768px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+      .comparison-vs { padding: 1rem 0; }
       .industry-grid { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: repeat(2, 1fr); }
       .stats { flex-wrap: wrap; gap: 1.5rem; }
@@ -84,23 +125,94 @@
 
 <section class="hero hero-home">
   <div class="container">
-    <div class="badge">🎯 Now in Early Access</div>
-    <h1>Eyes Anywhere, On Demand</h1>
-    <p>Need to see something at a location you can't get to? Remoscope connects you with verified local agents who go on-site and stream live video directly to you. Inspect, verify, and make decisions — all in real time.</p>
+    <div class="badge">🔴 LIVE Video — Not Just Photos</div>
+    <h1>See It <span class="highlight">Live</span>. Direct the Camera. Decide <span class="highlight">Now</span>.</h1>
+    <p>Other services send you photos hours later. Remoscope streams <strong>live HD video</strong> directly to your screen. Tell the agent where to look. Ask questions in real-time. Make decisions on the spot — not tomorrow.</p>
     <a href="#signup" class="cta-primary">Join the Waitlist</a>
-    <a href="#industries" class="cta-secondary" style="color: #60a5fa;">See use cases ↓</a>
+    <a href="#how-it-works" class="cta-secondary" style="color: #60a5fa;">See how it's different ↓</a>
     <div class="stats">
       <div class="stat">
-        <div class="stat-number">Same Day</div>
-        <div class="stat-label">Agent on-site</div>
+        <div class="stat-number">🔴 Live</div>
+        <div class="stat-label">Real-time streaming</div>
       </div>
       <div class="stat">
-        <div class="stat-number">Live HD</div>
-        <div class="stat-label">Video streaming</div>
+        <div class="stat-number">🎮 Interactive</div>
+        <div class="stat-label">You control the camera</div>
       </div>
       <div class="stat">
-        <div class="stat-number">Verified</div>
-        <div class="stat-label">Background-checked agents</div>
+        <div class="stat-number">🎤 Two-Way</div>
+        <div class="stat-label">Talk to the agent</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: Comparison Section -->
+<section class="comparison" id="how-it-works">
+  <div class="container">
+    <h2>Photos Are History. Live Video Is Now.</h2>
+    <p class="subtitle">See the difference between waiting for reports and being there yourself.</p>
+    <div class="comparison-grid">
+      <div class="comparison-box comparison-old">
+        <h3>❌ The Old Way (Photos/Reports)</h3>
+        <ul>
+          <li>Request inspection</li>
+          <li>Wait hours or days</li>
+          <li>Receive static photos</li>
+          <li>Have questions? Wait again.</li>
+          <li>"Show me behind that" — impossible</li>
+          <li>Decide based on limited angles</li>
+          <li>Miss what matters</li>
+        </ul>
+      </div>
+      <div class="comparison-vs">VS</div>
+      <div class="comparison-box comparison-new">
+        <h3>✓ The Remoscope Way (Live Video)</h3>
+        <ul>
+          <li>Request live session</li>
+          <li>Agent goes on-site same day</li>
+          <li>Watch HD video in real-time</li>
+          <li>"Pan left" — done instantly</li>
+          <li>"What's behind that door?" — agent shows you</li>
+          <li>Decide during the session</li>
+          <li>See everything you need</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: Live Demo Mockup -->
+<section class="live-demo">
+  <div class="container">
+    <h2>You're In Control</h2>
+    <p class="subtitle">Direct the agent like you're there yourself. Voice commands, text chat, or quick buttons.</p>
+    <div class="demo-container">
+      <div class="demo-header">
+        <span class="demo-live">● LIVE</span>
+        <span>Property Inspection — 123 Main St</span>
+      </div>
+      <div class="demo-body">
+        <div class="demo-video">
+          <div style="text-align: center;">
+            <div class="demo-video-icon">🎥</div>
+            <div class="demo-video-text">Live HD Video Stream</div>
+            <div style="font-size: 0.8rem; color: #64748b; margin-top: 0.5rem;">Agent POV • 1080p • Geotagged</div>
+          </div>
+        </div>
+        <div class="demo-commands">
+          <span class="demo-cmd">👈 "Pan Left"</span>
+          <span class="demo-cmd">👉 "Pan Right"</span>
+          <span class="demo-cmd">🔍 "Zoom In"</span>
+          <span class="demo-cmd">💡 "Turn on Light"</span>
+          <span class="demo-cmd">📸 "Take Screenshot"</span>
+        </div>
+        <div class="demo-chat">
+          <div class="demo-chat-msg"><span class="demo-chat-you">You:</span> Can you show me behind the couch?</div>
+          <div class="demo-chat-msg"><span class="demo-chat-agent">Agent:</span> Sure, moving there now.</div>
+          <div class="demo-chat-msg"><span class="demo-chat-you">You:</span> Great. Now show me the kitchen sink.</div>
+          <div class="demo-chat-msg"><span class="demo-chat-agent">Agent:</span> On my way. Anything specific to check?</div>
+        </div>
       </div>
     </div>
   </div>
@@ -114,17 +226,17 @@
       <div class="step">
         <div class="step-number">1</div>
         <h3>Tell Us What You Need</h3>
-        <p>Submit the location and what you want to see — property condition, completed work, venue layout, damage assessment. Be as specific as you want.</p>
+        <p>Submit the location and what you want to see — property condition, completed work, venue layout, damage assessment. The agent reads your instructions before they go.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
         <h3>Agent Goes On-Site</h3>
-        <p>A verified local agent heads to the location. Same-day availability in most metro areas. Background-checked and trained.</p>
+        <p>A verified local agent heads to the location. Same-day availability in most metro areas. Background-checked and ready to stream.</p>
       </div>
       <div class="step">
         <div class="step-number">3</div>
-        <h3>Watch Live</h3>
-        <p>Join the live video stream from your desk or phone. Direct the agent in real-time. Get timestamped, geotagged footage you can keep.</p>
+        <h3>Watch Live & Direct</h3>
+        <p>Join the live video stream. Tell the agent where to look. Ask questions via voice or chat. Make your decision while you're still connected.</p>
       </div>
     </div>
   </div>
@@ -132,14 +244,14 @@
 
 <section class="industries" id="industries">
   <div class="container">
-    <h2>Built for Teams That Work Remotely</h2>
-    <p class="subtitle">If you need eyes somewhere you can't be, we've got you covered.</p>
+    <h2>Who Uses Live Video Verification?</h2>
+    <p class="subtitle">Anyone who's tired of waiting for photos and needs answers now.</p>
     <div class="industry-grid">
       <a href="/verification" class="industry-card">
         <span class="icon">✅</span>
         <div>
           <h3>Remote Work Verification</h3>
-          <p>Running local services remotely? Verify that jobs are completed to standard without being there.</p>
+          <p>Watch your cleaning crew's work in real-time. "Show me under the bed." No more hoping the job was done right.</p>
           <div class="arrow">Learn more →</div>
         </div>
       </a>
@@ -147,7 +259,7 @@
         <span class="icon">🔍</span>
         <div>
           <h3>Insurance Claims</h3>
-          <p>Verify claims with live video from the scene. Faster processing, lower costs, better evidence.</p>
+          <p>"What's the damage behind that panel?" Get answers live, not in a follow-up report three days later.</p>
           <div class="arrow">Learn more →</div>
         </div>
       </a>
@@ -155,7 +267,7 @@
         <span class="icon">🏢</span>
         <div>
           <h3>Real Estate</h3>
-          <p>See any property before you fly out. Live walkthroughs of the building, street, and neighborhood.</p>
+          <p>Walk through any property from your laptop. "Open that closet." "Show me the street view." Decide before you fly out.</p>
           <div class="arrow">Learn more →</div>
         </div>
       </a>
@@ -163,15 +275,7 @@
         <span class="icon">🎪</span>
         <div>
           <h3>Event Scouting</h3>
-          <p>Tour venues from your desk. Evaluate spaces, check logistics, and shortlist — all in one day.</p>
-          <div class="arrow">Learn more →</div>
-        </div>
-      </a>
-      <a href="/news" class="industry-card">
-        <span class="icon">📡</span>
-        <div>
-          <h3>Breaking News Coverage</h3>
-          <p>Live ground footage from any scene in minutes. Verified agents on-site before the camera crew arrives.</p>
+          <p>Tour 5 venues in one afternoon without leaving your desk. "How's the acoustics?" "Where are the power outlets?"</p>
           <div class="arrow">Learn more →</div>
         </div>
       </a>
@@ -182,27 +286,27 @@
 <section class="trust">
   <div class="container">
     <h2>Trust Built In</h2>
-    <p class="subtitle">Every verification is reliable, documented, and secure.</p>
+    <p class="subtitle">Every live session is verified, recorded, and secure.</p>
     <div class="trust-grid">
       <div class="trust-item">
         <div class="icon">🛡️</div>
         <h3>Verified Agents</h3>
-        <p>Background-checked and trained local agents in metro areas nationwide.</p>
+        <p>Background-checked and trained. Comfortable on camera and ready to take direction.</p>
       </div>
       <div class="trust-item">
         <div class="icon">📍</div>
-        <h3>Geotagged</h3>
-        <p>Every stream is GPS-verified so you know the agent is at the right location.</p>
+        <h3>GPS Verified</h3>
+        <p>Every stream shows real-time location. You know exactly where the agent is.</p>
       </div>
       <div class="trust-item">
-        <div class="icon">⏱️</div>
-        <h3>Timestamped</h3>
-        <p>All footage is timestamped and recorded for your records and compliance.</p>
+        <div class="icon">⏺️</div>
+        <h3>Auto-Recorded</h3>
+        <p>Every session is saved. Rewatch, screenshot, or share the footage anytime.</p>
       </div>
       <div class="trust-item">
         <div class="icon">🔒</div>
         <h3>Encrypted</h3>
-        <p>End-to-end encrypted video streams. Your data stays private.</p>
+        <p>End-to-end encryption. Your live stream stays private.</p>
       </div>
     </div>
   </div>
@@ -210,23 +314,23 @@
 
 <section class="benefits">
   <div class="container">
-    <h2>Why Companies Choose Remoscope</h2>
-    <p class="subtitle">Save time. Save money. See everything.</p>
+    <h2>Why Live Video Beats Photos</h2>
+    <p class="subtitle">It's not just faster — it's a completely different experience.</p>
     <div class="benefits-grid">
       <div class="benefit">
-        <div class="benefit-icon">💰</div>
-        <h3>Cut Costs by 70%</h3>
-        <p>No flights, no hotels, no driving. One flat rate per verification, anywhere in the country.</p>
-      </div>
-      <div class="benefit">
         <div class="benefit-icon">⚡</div>
-        <h3>Hours, Not Days</h3>
-        <p>Local agents are already nearby. Get eyes on-site the same day you make the request.</p>
+        <h3>Instant Answers</h3>
+        <p>Don't wait for a report. Ask questions and get answers in real-time during the session.</p>
       </div>
       <div class="benefit">
-        <div class="benefit-icon">📈</div>
-        <h3>Scale Anywhere</h3>
-        <p>Expand into new markets without hiring locally. Our network is your network.</p>
+        <div class="benefit-icon">🎯</div>
+        <h3>See What You Need</h3>
+        <p>Photos show what the photographer chose. Live video shows what you ask to see.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🧠</div>
+        <h3>Decide Now</h3>
+        <p>Make the call while you're still looking. No waiting, no back-and-forth, no second visits.</p>
       </div>
     </div>
   </div>
@@ -234,8 +338,8 @@
 
 <section class="cta-section" id="signup">
   <div class="container">
-    <h2>Get Early Access</h2>
-    <p>We're onboarding companies now. Join the waitlist and be first in line when we launch in your area.</p>
+    <h2>Ready to See for Yourself?</h2>
+    <p>Join the waitlist for early access. Be the first to experience live video verification.</p>
     <form class="signup-form" data-niche="homepage">
       <input type="email" placeholder="you@company.com" required>
       <button type="submit">Join Waitlist</button>
