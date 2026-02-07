@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remoscope Ad - Live Video Focus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    /* Ad container - 1080x1080 for FB/IG feed */
+    .ad-container {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .headline {
+      color: #fff;
+      font-size: 56px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 16px;
+      z-index: 1;
+      line-height: 1.15;
+    }
+    
+    .headline .live {
+      color: #ef4444;
+      position: relative;
+    }
+    
+    .headline .live::before {
+      content: '🔴';
+      font-size: 40px;
+      margin-right: 10px;
+    }
+    
+    .subheadline {
+      color: #94a3b8;
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 40px;
+      z-index: 1;
+    }
+    
+    /* Video call mockup */
+    .video-call {
+      width: 700px;
+      background: #000;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    
+    .video-header {
+      background: #1c1c1e;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ef4444;
+      padding: 6px 14px;
+      border-radius: 6px;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    .timestamp {
+      color: #86868b;
+      font-size: 14px;
+      font-family: monospace;
+    }
+    
+    .video-content {
+      height: 380px;
+      background: 
+        linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.6) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=500&fit=crop') center/cover;
+      position: relative;
+    }
+    
+    .location-overlay {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .gps-verified {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(34, 197, 94, 0.9);
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    
+    /* Chat section */
+    .chat-section {
+      background: #1c1c1e;
+      padding: 16px 20px;
+    }
+    
+    .chat-messages {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    
+    .chat-msg {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    
+    .chat-msg.you {
+      flex-direction: row-reverse;
+    }
+    
+    .chat-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #3b82f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    
+    .chat-msg.agent .chat-avatar {
+      background: #22c55e;
+    }
+    
+    .chat-bubble {
+      background: #2c2c2e;
+      padding: 10px 14px;
+      border-radius: 16px;
+      color: #fff;
+      font-size: 15px;
+      max-width: 400px;
+    }
+    
+    .chat-msg.you .chat-bubble {
+      background: #3b82f6;
+    }
+    
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .chat-input input {
+      flex: 1;
+      background: #2c2c2e;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 20px;
+      color: #fff;
+      font-size: 14px;
+    }
+    
+    .chat-input button {
+      background: #3b82f6;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    
+    /* CTA */
+    .cta {
+      margin-top: 40px;
+      background: #3b82f6;
+      color: #fff;
+      padding: 18px 50px;
+      border-radius: 14px;
+      font-size: 22px;
+      font-weight: 700;
+      z-index: 1;
+      box-shadow: 0 16px 32px rgba(59, 130, 246, 0.3);
+    }
+    
+    /* Logo */
+    .logo {
+      position: absolute;
+      bottom: 30px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      z-index: 1;
+    }
+    
+    .logo span {
+      color: #3b82f6;
+    }
+  </style>
+</head>
+<body>
+  <div class="ad-container">
+    <div class="headline">Watch <span class="live">LIVE</span> — Not Photos</div>
+    <div class="subheadline">Direct the camera. Ask questions. Decide now.</div>
+    
+    <div class="video-call">
+      <div class="video-header">
+        <div class="live-indicator">
+          <span class="live-dot"></span>
+          LIVE
+        </div>
+        <span class="timestamp">00:04:32</span>
+      </div>
+      <div class="video-content">
+        <div class="location-overlay">📍 1847 Pine St, San Francisco</div>
+        <div class="gps-verified">✓ GPS Verified</div>
+      </div>
+      <div class="chat-section">
+        <div class="chat-messages">
+          <div class="chat-msg you">
+            <div class="chat-avatar">👤</div>
+            <div class="chat-bubble">Can you show me behind the couch?</div>
+          </div>
+          <div class="chat-msg agent">
+            <div class="chat-avatar">📹</div>
+            <div class="chat-bubble">Sure, moving there now.</div>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" placeholder="Type a message..." disabled>
+          <button>🎤</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cta">Get Early Access →</div>
+    
+    <div class="logo">Remo<span>scope</span></div>
+  </div>
+</body>
+</html>

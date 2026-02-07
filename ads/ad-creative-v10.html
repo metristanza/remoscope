@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remoscope Ad - Simple Explainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .ad-container {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 70px;
+      position: relative;
+      text-align: center;
+    }
+    
+    .what-we-do {
+      color: #3b82f6;
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
+    
+    .headline {
+      color: #fff;
+      font-size: 72px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 30px;
+    }
+    
+    .headline .highlight {
+      color: #f87171;
+      position: relative;
+    }
+    
+    .explanation {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 40px 50px;
+      margin-bottom: 40px;
+      max-width: 800px;
+    }
+    
+    .explanation p {
+      color: #e2e8f0;
+      font-size: 28px;
+      line-height: 1.5;
+    }
+    
+    .explanation strong {
+      color: #fff;
+    }
+    
+    .features {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #94a3b8;
+      font-size: 20px;
+    }
+    
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(59, 130, 246, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    
+    .live-example {
+      background: #000;
+      border-radius: 16px;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    
+    .live-badge {
+      background: #ef4444;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .live-dot {
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    .live-text {
+      color: #fff;
+      font-size: 22px;
+    }
+    
+    .live-text span {
+      color: #94a3b8;
+    }
+    
+    .cta {
+      background: #3b82f6;
+      color: #fff;
+      padding: 24px 70px;
+      border-radius: 16px;
+      font-size: 28px;
+      font-weight: 700;
+      box-shadow: 0 20px 50px rgba(59, 130, 246, 0.35);
+    }
+    
+    .logo {
+      position: absolute;
+      bottom: 40px;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .logo span { color: #3b82f6; }
+  </style>
+</head>
+<body>
+  <div class="ad-container">
+    <div class="what-we-do">Live Video Verification Service</div>
+    
+    <div class="headline">Need Eyes<br><span class="highlight">Somewhere Else?</span></div>
+    
+    <div class="explanation">
+      <p>We <strong>dispatch verified agents</strong> to any location who <strong>stream live video</strong> directly to you. Tell them where to look. Ask questions. Make decisions — all in real-time.</p>
+    </div>
+    
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        Same-day service
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        Verified agents
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📍</div>
+        GPS confirmed
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎤</div>
+        Two-way audio
+      </div>
+    </div>
+    
+    <div class="live-example">
+      <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+      <div class="live-text">You: "Check behind the water heater" <span>→ Agent goes there</span></div>
+    </div>
+    
+    <div class="cta">Get Early Access →</div>
+    
+    <div class="logo">Remo<span>scope</span></div>
+  </div>
+</body>
+</html>

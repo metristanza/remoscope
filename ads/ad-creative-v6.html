@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remoscope Ad - Photos vs Live Video</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .ad-container {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 50px;
+      position: relative;
+    }
+    
+    .headline {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 50px;
+      line-height: 1.2;
+    }
+    
+    .comparison {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    /* Left: Old way (photos) */
+    .old-way {
+      width: 320px;
+      background: #1c1c1e;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid #ef4444;
+      position: relative;
+    }
+    
+    .old-way::after {
+      content: '❌';
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      font-size: 40px;
+      background: #0f172a;
+      border-radius: 50%;
+      padding: 5px;
+    }
+    
+    .old-header {
+      background: #ef4444;
+      color: #fff;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+    }
+    
+    .old-content {
+      padding: 20px;
+    }
+    
+    .photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    
+    .photo {
+      height: 80px;
+      background: #2c2c2e;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 24px;
+    }
+    
+    .old-problems {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    
+    .old-problems li {
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .old-problems li::before {
+      content: '✗';
+      color: #ef4444;
+      font-weight: bold;
+    }
+    
+    /* Right: Remoscope (live video) */
+    .new-way {
+      width: 320px;
+      background: #1c1c1e;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 3px solid #22c55e;
+      position: relative;
+    }
+    
+    .new-way::after {
+      content: '✓';
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      font-size: 32px;
+      background: #22c55e;
+      color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    
+    .new-header {
+      background: #22c55e;
+      color: #fff;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 16px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .live-badge {
+      background: #fff;
+      color: #ef4444;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    
+    .live-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #ef4444;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    .new-content {
+      padding: 16px;
+    }
+    
+    .video-preview {
+      height: 140px;
+      background: 
+        linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.5) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=200&fit=crop') center/cover;
+      border-radius: 10px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    
+    .video-preview .rec {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ef4444;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .video-preview .rec::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+    }
+    
+    .mini-chat {
+      background: #2c2c2e;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    
+    .mini-msg {
+      font-size: 13px;
+      padding: 5px 0;
+      display: flex;
+      gap: 6px;
+    }
+    
+    .mini-msg .you { color: #60a5fa; font-weight: 600; }
+    .mini-msg .agent { color: #34d399; font-weight: 600; }
+    .mini-msg span:last-child { color: #e2e8f0; }
+    
+    /* VS divider */
+    .vs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: 800;
+      color: #64748b;
+    }
+    
+    /* CTA */
+    .cta {
+      background: #3b82f6;
+      color: #fff;
+      padding: 20px 60px;
+      border-radius: 14px;
+      font-size: 24px;
+      font-weight: 700;
+      box-shadow: 0 16px 32px rgba(59, 130, 246, 0.3);
+    }
+    
+    .tagline {
+      color: #94a3b8;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+    
+    .logo {
+      position: absolute;
+      bottom: 30px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    .logo span { color: #3b82f6; }
+  </style>
+</head>
+<body>
+  <div class="ad-container">
+    <div class="headline">Stop Waiting for Photos.<br>Watch It <span style="color:#ef4444">LIVE</span>.</div>
+    
+    <div class="comparison">
+      <div class="old-way">
+        <div class="old-header">📸 The Old Way</div>
+        <div class="old-content">
+          <div class="photo-grid">
+            <div class="photo">📷</div>
+            <div class="photo">📷</div>
+            <div class="photo">📷</div>
+            <div class="photo">📷</div>
+          </div>
+          <ul class="old-problems">
+            <li>Wait hours for photos</li>
+            <li>Can't ask questions</li>
+            <li>See only what they chose</li>
+            <li>Decide without answers</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="vs">VS</div>
+      
+      <div class="new-way">
+        <div class="new-header">
+          <span class="live-badge">LIVE</span>
+          Remoscope
+        </div>
+        <div class="new-content">
+          <div class="video-preview">
+            <div class="rec">REC</div>
+          </div>
+          <div class="mini-chat">
+            <div class="mini-msg"><span class="you">You:</span> <span>Show me the kitchen</span></div>
+            <div class="mini-msg"><span class="agent">Agent:</span> <span>On my way now</span></div>
+            <div class="mini-msg"><span class="you">You:</span> <span>What's that stain?</span></div>
+            <div class="mini-msg"><span class="agent">Agent:</span> <span>Looks like water damage</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cta">See How It Works →</div>
+    <div class="tagline">Direct the camera. Ask questions. Decide now.</div>
+    
+    <div class="logo">Remo<span>scope</span></div>
+  </div>
+</body>
+</html>

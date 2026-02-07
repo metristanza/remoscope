@@ -1,7 +1,77 @@
 # Remoscope — X (Twitter) Outreach Strategy
 
+**Last Updated:** January 31, 2026
+
 ## Goal
 Find people on X who run remote businesses with local operations, or who manage local ads/services. Start conversations to validate demand.
+
+---
+
+## 🔍 Competitor X Intelligence (Updated Jan 31, 2026)
+
+### Activity Summary
+
+| Account | Posts | Followers | Last Active | Status |
+|---------|-------|-----------|-------------|--------|
+| **@WeGoLook** | 8,828 | 3,877 | Aug 2020 | 💀 DEAD — no posts in 5+ years |
+| **@ProxyPics** ✓ | 1,651 | 831 | Daily | 🟡 Active but low engagement (5-13 views) |
+| **@ivueitapp** | 1,444 | 776 | Daily | 🟡 Active but low engagement (3-28 views) |
+
+### What They Post (and Why It Fails)
+
+**WeGoLook (@WeGoLook):**
+- Completely abandoned since Aug 2020
+- Last posts were corporate reposts from parent Crawford
+- No community engagement, no thought leadership
+- 💡 Opportunity: Insurance vertical is WIDE OPEN on X
+
+**ProxyPics (@ProxyPics):**
+- Daily posts but ZERO engagement
+- Content: "ProxyPets" (photos of pets), support shoutouts, hashtag spam
+- Not talking TO customers, talking AT them
+- Generic corporate voice, no personality
+- 💡 Opportunity: Beat them by being human and conversational
+
+**iVueit (@ivueitapp):**
+- Regular posts, slightly better engagement (up to 28 views)
+- Content: App update announcements, "Vuer" appreciation posts
+- Heavy on hashtags (#iVueit #VueMoreDoMore)
+- Still mostly talking to themselves
+- 💡 Opportunity: They're not engaging with their target market at all
+
+### Key Insights
+
+1. **None of them are doing DM outreach** — they're just broadcasting
+2. **No thought leadership** — nobody positioning as the expert
+3. **No engagement with target customers** — not joining relevant conversations
+4. **WeGoLook abandoned X entirely** — Crawford doesn't care about social
+5. **All have weak follower counts** for their company size
+
+---
+
+## 🎯 Remoscope's X Strategy
+
+### Differentiation Tactics
+
+1. **Be conversational, not corporate** — No hashtag spam, no "we're pleased to announce"
+2. **Engage first, pitch later** — Reply to target accounts' posts before DMing
+3. **Join existing conversations** — Comment on threads about remote work, property management, insurance
+4. **Share insights, not promotions** — "Here's what I learned talking to cleaning business owners..."
+5. **Ask questions publicly** — Creates engagement and positions you as curious/learning
+
+### Content Mix (3-2-1 Rule)
+
+For every 6 posts:
+- **3 engagement posts** — Replies to others, quote tweets with commentary
+- **2 insight posts** — Observations about remote work verification, industry problems
+- **1 soft pitch** — What you're building, waitlist, etc.
+
+### Voice/Tone
+
+- First person ("I" not "We")
+- Curious and learning, not expert lecturing
+- Acknowledge the problem is real
+- Don't pretend the product is done — "building," "early access," "testing"
 
 ---
 
@@ -48,6 +118,29 @@ Find people on X who run remote businesses with local operations, or who manage 
 
 ---
 
+## Priority DM Targets
+
+### Tier 1 — High Priority (Cleaning/Remote Services)
+| Handle | Who | Why Target |
+|--------|-----|------------|
+| @SqueegeeGod | Johnny Robinson | Remote cleaning, 800+ students in his course |
+| @cleanwithmike | Mike Cleans | $40k/mo remote cleaning business |
+| @ianncushing | Ian Cushing | Coaches remote cleaning business launches |
+| @JennTendero | Jenn Tendero | Wrote playbook for remote home services |
+
+### Tier 2 — Real Estate Investors
+| Handle | Who | Why Target |
+|--------|-----|------------|
+| Search BiggerPockets community | Out-of-state investors | Active niche, clear pain point |
+| @biggerpockets | BP Official | Engage with their content to reach audience |
+
+### Tier 3 — Insurance (Underserved)
+- Search for claims adjusters venting about backlogs
+- Independent agencies, not corporate (they're more nimble)
+- Note: WeGoLook abandoned this space on X — it's yours
+
+---
+
 ## Outreach Templates
 
 ### Template 1 — For Remote Business Operators
@@ -90,18 +183,53 @@ Find people on X who run remote businesses with local operations, or who manage 
 - **Engage with their content first** — like/reply to a few posts before DMing
 - **Keep it short** — 2-3 sentences max for first touch
 - **Follow up once** if no reply after 3-4 days
+- **Monitor competitor accounts** — Reply to people who engage with @ProxyPics or @ivueitapp
 
 ### Don'ts
 - Don't spam — max 10-15 outreach DMs per day to avoid account flags
 - Don't copy-paste identical messages (X detects this)
 - Don't pitch immediately — have a conversation first
 - Don't lie about product readiness — say "building" or "early access"
+- Don't use hashtag spam like competitors do
 
 ### Tracking
 Keep a simple spreadsheet:
 | Date | Handle | Vertical | Message Sent | Response? | Interested? | Notes |
 |------|--------|----------|-------------|-----------|-------------|-------|
 | | | | | | | |
+
+---
+
+## Competitive Advantage on X
+
+### Why Remoscope Can Win
+
+1. **WeGoLook is asleep** — Nobody home for 5 years. Insurance audience is uncontested.
+
+2. **ProxyPics talks to themselves** — 831 followers, zero engagement. You can pass them in weeks with actual conversations.
+
+3. **iVueit is generic** — Corporate hashtag spam. Easy to beat with authentic voice.
+
+4. **Live video is a new category** — None of them can claim it. You own this narrative.
+
+5. **SMB focus is underserved** — All competitors chase enterprise. Small operators are on X and eager to talk.
+
+### Weekly Action Plan
+
+**Week 1-2: Warm Up**
+- Post 3 warm-up posts (problem-focused, no pitch)
+- Like/reply to 20+ posts from target accounts
+- Join 5+ conversations about remote work verification
+
+**Week 3-4: Outreach**
+- Start DM outreach (10-15/day max)
+- Continue engagement (don't go silent)
+- Track responses in spreadsheet
+
+**Week 5+: Scale What Works**
+- Double down on verticals that respond
+- Share learnings publicly ("Talked to 50 cleaning biz owners, here's what I learned...")
+- Build authority through insights
 
 ---
 
@@ -115,3 +243,7 @@ Search for and engage with people posting about:
 5. **"Local news dying"** — journalists discussing coverage gaps
 
 These people ARE your market. Start conversations, not sales pitches.
+
+---
+
+*Strategy updated based on competitor X audit conducted January 31, 2026*

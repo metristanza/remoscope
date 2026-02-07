@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remoscope Ad - Service Explainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .ad-container {
+      width: 1080px;
+      height: 1080px;
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 50px;
+      position: relative;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .service-badge {
+      display: inline-block;
+      background: #3b82f6;
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .headline {
+      color: #fff;
+      font-size: 52px;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    
+    .headline span { color: #f87171; }
+    
+    .subheadline {
+      color: #94a3b8;
+      font-size: 22px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Main visual */
+    .main-visual {
+      flex: 1;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Left: You */
+    .you-side {
+      text-align: center;
+    }
+    
+    .you-label {
+      color: #3b82f6;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .laptop {
+      width: 320px;
+      height: 220px;
+      background: #1c1c1e;
+      border-radius: 12px;
+      border: 3px solid #333;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .laptop-screen {
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%),
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=280&fit=crop') center/cover;
+      position: relative;
+    }
+    
+    .laptop .live-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #ef4444;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .laptop .live-dot {
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    
+    .laptop-base {
+      width: 360px;
+      height: 16px;
+      background: linear-gradient(180deg, #2a2a2a, #1a1a1a);
+      border-radius: 0 0 8px 8px;
+      margin: 0 auto;
+    }
+    
+    .you-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .action {
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: #60a5fa;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    
+    /* Connection */
+    .connection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .connection-line {
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #22c55e);
+      border-radius: 2px;
+      position: relative;
+    }
+    
+    .connection-line::before {
+      content: '📡';
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+    }
+    
+    .connection-text {
+      color: #64748b;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    /* Right: Agent */
+    .agent-side {
+      text-align: center;
+    }
+    
+    .agent-label {
+      color: #22c55e;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .phone {
+      width: 180px;
+      height: 340px;
+      background: #000;
+      border-radius: 30px;
+      padding: 8px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #1a1a2e 0%, #0f172a 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .phone-header {
+      background: #ef4444;
+      padding: 12px;
+      text-align: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    .phone-video {
+      flex: 1;
+      background: 
+        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=200&h=300&fit=crop') center/cover;
+      position: relative;
+    }
+    
+    .phone-location {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.7);
+      padding: 8px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .agent-info {
+      margin-top: 16px;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: #22c55e;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    /* Bottom CTA */
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 30px;
+    }
+    
+    .use-cases {
+      display: flex;
+      gap: 16px;
+    }
+    
+    .use-case {
+      background: rgba(255,255,255,0.05);
+      padding: 10px 18px;
+      border-radius: 8px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+    
+    .cta {
+      background: #3b82f6;
+      color: #fff;
+      padding: 18px 40px;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+    }
+    
+    .logo {
+      position: absolute;
+      bottom: 30px;
+      left: 50px;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .logo span { color: #3b82f6; }
+  </style>
+</head>
+<body>
+  <div class="ad-container">
+    <div class="header">
+      <div class="service-badge">On-Demand Live Video Service</div>
+      <div class="headline">Can't Be There? <span>We Go For You.</span></div>
+      <div class="subheadline">We send verified agents to stream live video from any location. You watch, direct, and decide — all from your desk.</div>
+    </div>
+    
+    <div class="main-visual">
+      <div class="you-side">
+        <div class="you-label">👤 You (Anywhere)</div>
+        <div class="laptop">
+          <div class="laptop-screen">
+            <div class="live-badge"><span class="live-dot"></span> LIVE</div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
+        <div class="you-actions">
+          <div class="action">💬 "Show me the kitchen"</div>
+          <div class="action">🔍 "Zoom in on that"</div>
+        </div>
+      </div>
+      
+      <div class="connection">
+        <div class="connection-text">Live Stream</div>
+        <div class="connection-line"></div>
+        <div class="connection-text">Your Voice</div>
+      </div>
+      
+      <div class="agent-side">
+        <div class="agent-label">📱 Our Agent (On-Site)</div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-header">🔴 STREAMING</div>
+            <div class="phone-video">
+              <div class="phone-location">📍 1847 Pine St, SF</div>
+            </div>
+          </div>
+        </div>
+        <div class="agent-info">✓ Verified • GPS Confirmed</div>
+      </div>
+    </div>
+    
+    <div class="bottom">
+      <div class="use-cases">
+        <div class="use-case">🏠 Real Estate</div>
+        <div class="use-case">🔧 Contractors</div>
+        <div class="use-case">📦 Deliveries</div>
+        <div class="use-case">🔍 Inspections</div>
+      </div>
+      <div class="cta">Get Early Access →</div>
+    </div>
+    
+    <div class="logo">Remo<span>scope</span></div>
+  </div>
+</body>
+</html>

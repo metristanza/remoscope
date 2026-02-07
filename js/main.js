@@ -1,9 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Mailchimp config
-  const MC_URL = 'https://remoscope.us8.list-manage.com/subscribe/post-json';
-  const MC_U = '66178cd1892eb3bd7b9c46167';
-  const MC_ID = '1bb48854da';
-
   // Handle all signup forms
   document.querySelectorAll('.signup-form').forEach(form => {
     form.addEventListener('submit', (e) => {
@@ -24,45 +19,45 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.innerHTML = `
       <div class="survey-content">
         <h3>One quick question! 🎯</h3>
-        <p>What interests you most about Remoscope?</p>
+        <p>What interests you about Remoscope? <span style="color:#94a3b8;font-size:0.875rem">(select all that apply)</span></p>
         <div class="survey-options">
           <label class="survey-option">
-            <input type="radio" name="interest" value="no_travel">
+            <input type="checkbox" name="interest" value="no_travel">
             <span>Seeing locations without traveling</span>
           </label>
           <label class="survey-option">
-            <input type="radio" name="interest" value="live_video">
+            <input type="checkbox" name="interest" value="live_video">
             <span>LIVE video (not just photos)</span>
           </label>
           <label class="survey-option">
-            <input type="radio" name="interest" value="direct_agent">
+            <input type="checkbox" name="interest" value="direct_agent">
             <span>Directing the agent in real-time</span>
           </label>
           <label class="survey-option">
-            <input type="radio" name="interest" value="ask_questions">
+            <input type="checkbox" name="interest" value="ask_questions">
             <span>Asking questions on the spot</span>
           </label>
           <label class="survey-option">
-            <input type="radio" name="interest" value="faster">
+            <input type="checkbox" name="interest" value="faster">
             <span>Faster than my current method</span>
           </label>
         </div>
-        <p style="margin-top: 1.5rem;">How do you currently verify remote work?</p>
+        <p style="margin-top: 1.5rem;">How do you currently verify remote work? <span style="color:#94a3b8;font-size:0.875rem">(select all that apply)</span></p>
         <div class="survey-options">
           <label class="survey-option">
-            <input type="radio" name="current" value="own_team">
+            <input type="checkbox" name="current" value="own_team">
             <span>Send my own team</span>
           </label>
           <label class="survey-option">
-            <input type="radio" name="current" value="photo_service">
+            <input type="checkbox" name="current" value="photo_service">
             <span>Use a photo inspection service</span>
           </label>
           <label class="survey-option">
-            <input type="radio" name="current" value="ask_photos">
+            <input type="checkbox" name="current" value="ask_photos">
             <span>Ask for photos from the site</span>
           </label>
           <label class="survey-option">
-            <input type="radio" name="current" value="nothing">
+            <input type="checkbox" name="current" value="nothing">
             <span>I don't — that's the problem</span>
           </label>
         </div>
@@ -113,37 +108,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle submit
     modal.querySelector('.survey-submit').addEventListener('click', () => {
-      const interest = modal.querySelector('input[name="interest"]:checked');
-      const current = modal.querySelector('input[name="current"]:checked');
+      const interests = modal.querySelectorAll('input[name="interest"]:checked');
+      const currents = modal.querySelectorAll('input[name="current"]:checked');
       
-      const interestVal = interest ? interest.value : 'not_answered';
-      const currentVal = current ? current.value : 'not_answered';
+      const interestVal = interests.length > 0 
+        ? Array.from(interests).map(i => i.value).join(',') 
+        : 'not_answered';
+      const currentVal = currents.length > 0 
+        ? Array.from(currents).map(c => c.value).join(',') 
+        : 'not_answered';
       
-      submitToMailchimp(email, source, interestVal, currentVal, originalForm, modal);
+      submitSubscription(email, source, interestVal, currentVal, originalForm, modal);
     });
 
     // Handle skip
     modal.querySelector('.survey-skip').addEventListener('click', (e) => {
       e.preventDefault();
-      submitToMailchimp(email, source, 'skipped', 'skipped', originalForm, modal);
+      submitSubscription(email, source, 'skipped', 'skipped', originalForm, modal);
     });
   }
 
-  function submitToMailchimp(email, source, interest, current, form, modal) {
+  async function submitSubscription(email, source, interest, current, form, modal) {
     const btn = modal.querySelector('.survey-submit');
     btn.textContent = 'Joining...';
     btn.disabled = true;
 
-    // Build URL with survey data
-    const url = `${MC_URL}?u=${MC_U}&id=${MC_ID}&EMAIL=${encodeURIComponent(email)}&SOURCE=${encodeURIComponent(source)}&INTEREST=${encodeURIComponent(interest)}&CURRENT=${encodeURIComponent(current)}`;
-    
-    const script = document.createElement('script');
-    const callbackName = 'mc_callback_' + Date.now();
-    
-    window[callbackName] = (data) => {
-      delete window[callbackName];
-      if (script.parentNode) script.parentNode.removeChild(script);
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, source, interest, current }),
+      });
 
+      const data = await response.json();
+      
       // Remove modal
       modal.remove();
 
@@ -163,21 +161,17 @@ document.addEventListener('DOMContentLoaded', () => {
           success.style.display = 'block';
         }
       } else {
-        // Still show success if already subscribed
-        if (data.msg && data.msg.includes('already subscribed')) {
-          const success = form.nextElementSibling;
-          if (success && success.classList.contains('form-success')) {
-            form.style.display = 'none';
-            success.style.display = 'block';
-          }
-        } else {
-          alert(data.msg || 'Something went wrong. Please try again.');
-        }
+        alert(data.msg || 'Something went wrong. Please try again.');
       }
-    };
-
-    script.src = url + '&c=' + callbackName;
-    document.body.appendChild(script);
+    } catch (err) {
+      modal.remove();
+      // Show success anyway on network error - better UX
+      const success = form.nextElementSibling;
+      if (success && success.classList.contains('form-success')) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      }
+    }
   }
 
   // Smooth scroll for anchor links
